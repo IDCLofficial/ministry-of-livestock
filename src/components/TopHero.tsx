@@ -9,7 +9,7 @@ interface TopHeroProps {
 export const TopHero: React.FC<TopHeroProps> = ({ title, subtitle, bgImage }) => {
   return (
     <section
-      className="relative w-full mt-14 h-[50vh] flex items-center bg-cover bg-center py-24 px-6 md:px-12 lg:px-20 text-left"
+      className="relative w-full h-[50vh] lg:h-[60vh] flex items-center bg-cover bg-center py-24 px-6 md:px-12 lg:px-20 text-left"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       {/* Overlay for better readability */}

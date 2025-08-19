@@ -1,103 +1,216 @@
-import Image from "next/image";
+import HeroSection from "@/components/HeroSection";
+import CommissionerSection from "@/components/CommissionerSection";
+import LatestNewsSection from "@/components/LatestNewsSection";
+import FeaturedPartners from "@/components/FeaturedPartners";
+import Footer from "@/components/Footer";
+import Link from "next/link";
+import AboutSection from "@/components/AboutSection";
+import { FaProjectDiagram, FaCalendarAlt, FaPhotoVideo, FaInfoCircle } from "react-icons/fa"
+import DepartmentsSection from "@/components/Departments";
+import PartnerSection from "@/components/PartnerSection";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const cardsData = [
+    {
+      title: "Projects",
+      description: "Explore our initiatives in livestock development across Imo State.",
+      icon: FaProjectDiagram,
+      link: "/projects"
+    },
+    {
+      title: "Events",
+      description: "Stay updated with livestock-related programs, fairs, and training events.",
+      icon:     FaCalendarAlt,
+      link: "/events"
+    },
+    {
+      title: "Media",
+      description: "Browse photos, videos, and news showcasing our progress.",
+      icon:   FaPhotoVideo,
+      link: "/media"
+    },
+    {
+      title: "About Us",
+      description: "Learn more about the Imo State Ministry of Livestock Development.",
+      icon: FaInfoCircle,
+      link: "/about"
+    },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  // departments
+
+  const livestockDepartments = [
+    {
+      title: "Department of Animal Health & Veterinary Services",
+      desc: "Ensures animal disease prevention, control, and treatment through veterinary clinics, vaccination campaigns, and modern health monitoring systems.",
+    },
+    {
+      title: "Department of Livestock Production",
+      desc: "Promotes sustainable cattle, poultry, goat, and pig farming, while supporting improved breeds and enhanced productivity across the state.",
+    },
+    {
+      title: "Department of Pasture & Feed Development",
+      desc: "Focuses on pasture management, feed formulation, and promoting modern techniques for sustainable forage production.",
+    },
+    {
+      title: "Department of Planning, Research & Statistics",
+      desc: "Collects and analyzes livestock data to guide evidence-based policies, research innovations, and sustainable livestock growth strategies.",
+    },
+  ];
+
+  
+  return (
+    <>
+
+     
+      {/* hero section */}
+      <div className="relative">
+  <HeroSection
+    title="Advancing Livestock Development Through Innovation & Sustainability"
+    description="Empowering Imo’s farmers and agribusinesses with sustainable practices, modern techniques, and innovative solutions."
+    buttonText="Learn More"
+    backgroundImages={[
+      "/images/hero1.png",
+      "/images/hero2.png",
+      "/images/hero3.png",
+    ]}
+  />
+
+  {/* InfoCards - Full Width */}
+  <div className="w-full bg-[#06163A] lg:bg-transparent py-8 relative lg:absolute lg:left-0 lg:bottom-0 lg:translate-y-1/2 z-20">
+
+      <section className="w-full px-6">
+        {/* Wrapper */}
+        <div className="flex flex-col lg:flex-row gap-6">
+          {cardsData.map((item, i) => (
+            <div
+              key={i}
+              className="relative bg-white rounded-xl p-6 shadow-md 
+                         transition-all duration-500 ease-in-out
+                         scale-100 lg:scale-75 
+                         hover:lg:flex-[2] hover:lg:scale-100
+                         hover:-translate-y-2 hover:shadow-2xl flex-1"
+            >
+              {/* Irregular purple border effect */}
+              <div
+                className="absolute inset-0 rounded-xl border-4 border-[#06163A] 
+                           [clip-path:polygon(6%_0,94%_0,100%_10%,100%_94%,94%_100%,6%_100%,0_90%,0_6%)] 
+                           pointer-events-none"
+              ></div>
+<AnimatedSection>
+              {/* Icon */}
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-[#06163A] mb-3 bg-gray-100">
+                <item.icon className="text-black text-base" />
+              </div>
+              </AnimatedSection>
+              <AnimatedSection >
+
+              {/* Title */}
+              <h3 className="text-lg md:text-xl font-bold mb-2 text-graay-900">
+                {item.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-600 mb-4 text-sm md:text-base">
+                {item.description}
+              </p>
+              </AnimatedSection>
+              {/* Link */}
+              <Link
+                href={item.link}
+                className="text-purple-600 font-semibold hover:underline"
+              >
+                More info
+              </Link>
+            </div>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
     </div>
+  
+
+
+
+
+</div>
+
+      {/* <div className="relative">
+  <HeroSection
+    title="Advancing Livestock Development Through Innovation & Sustainability"
+    description="Empowering farmers, agribusinesses, and livestock producers across Imo State through sustainable practices, modern techniques, and innovative solutions for agricultural development."
+    buttonText="Learn More"
+    backgroundImages={["/images/hero1.png", "/images/hero2.png", "/images/hero3.png"]}
+  /> */}
+
+  {/* InfoCards */}
+  {/* <div className="md:absolute md:left-[60%] md:-translate-x-1/2 md:-bottom-16 z-20 w-full md:w-auto">
+    <InfoCards cards={cardsData} />
+  </div>
+</div> */}
+
+      {/* About Mandate Section */}
+       {/* Skill Up Section */}
+       <AboutSection
+  title="Imo State Ministry of Livestock Development"
+  description={`The Ministry is leading the transformation of livestock farming in Imo State — from subsistence to a thriving agro-industrial sector.  
+Infrastructure investments, including a modern abattoir in Naze and an advanced processing hub in Okigwe, are setting new standards in meat hygiene, storage, and value addition.  
+Stakeholder engagements, modern veterinary services, and support for breeding and cooperatives are empowering rural communities and advancing food security.  
+Imo stands among the first states to create a dedicated Livestock Ministry, signaling strong political will and strategic positioning for sustainable growth and economic diversification.`}
+  image="/images/heromain.png"
+  link="/about"
+  buttonText="Learn More"
+/>
+{/* departments */}
+<DepartmentsSection
+      title="Our Departments & Their Functions"
+      subtitle="Discover how each department within the Imo State Ministry of Livestock Development contributes to sustainable farming, food security, and economic empowerment."
+      departments={livestockDepartments}
+      image="/images/depart1.png" 
+      buttonText="See All Departments"
+      buttonLink="/departments"
+    />
+
+      {/* <AboutMandateSection
+        label="ABOUT US"
+        title="Our Mandate —"
+        subheading="Ministry of Livestock Development"
+        description="Welcome to the Imo State Ministry of Livestock Development
+As a key driver of agricultural transformation, our Ministry plays a critical role in positioning Imo State as a hub for livestock production and agribusiness. In a time of economic diversification, we are committed to fostering sustainable livestock development, attracting investment, and creating opportunities through modern farming techniques and innovative agricultural policies.
+
+Established to oversee the growth and development of the livestock sector, this Ministry focuses on animal husbandry, veterinary services, and livestock value chain development—ensuring food security, employment generation, and economic growth in Imo State.
+"
+        buttonText="Discover More"
+        image1="/images/womenfirst.jpg"
+        image2="/images/ini2.png"
+      /> */}
+
+      {/* Commissioner Section */}
+      <CommissionerSection
+        imageSrc="/images/commisioner.png"
+        imageAlt="Honourable Lady Nkechinyere Ugwu, Minister of Women Affairs and Social Welfare in Imo State"
+        title="About The Commissioner"
+        bio="Hon. Dr. Anthony C. Mgbeahuruike was sworn in as the pioneer Commissioner for Livestock Development by Governor Hope Uzodimma in March 2025. A distinguished veterinarian and research scientist, he holds a Doctor of Veterinary Medicine (DVM) from the University of Nigeria, Nsukka, and a Ph.D. in Fungal Genomics from the University of Helsinki, Finland. His appointment brings deep technical expertise to the forefront of Imo's agricultural transformation agenda."
+        details="Since assuming office, Commissioner Mgbeahuruike has been instrumental in laying the ministry's foundational strategy. In May 2025, he initiated a comprehensive assessment of the state's veterinary clinics and farm estates, including the reactivation of the Acharaubo Farm Estate, to restore critical infrastructure. He has held strategic engagements with the Poultry Association of Nigeria (PAN) and the All Farmers Association of Nigeria (AFAN) to co-design farmer-centric support programs. Under his leadership, the ministry began collaborating with the National Animal Production Research Institute (NAPRI) in July 2025 to domesticate the National Livestock Transformation Plan (NLTP), focusing on establishing modern ranching models suited for Imo State.
+
+Dr. Mgbeahuruike is recognized for his data-driven approach and his commitment to building partnerships that drive tangible results, positioning him to lead the charge in creating a robust, profitable, and sustainable livestock sector for Imo State."
+        
+      />
+      <div className="bg-white">
+
+    
+      {/* Latest News Section */}
+      <LatestNewsSection />
+      </div>
+
+     
+      {/* Featured Partners Section */}
+      <FeaturedPartners />
+    {/* partner with us */}
+<PartnerSection />
+
+      {/* Footer */}
+      <Footer />
+    </>
   );
 }

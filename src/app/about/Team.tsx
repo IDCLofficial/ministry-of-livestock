@@ -9,7 +9,7 @@ const teamMembers = [
     bio: 'Provides visionary leadership and strategic direction for the Ministry of Livestock Development in Imo State.'
   },
   {
-    name: 'Dr. Iroh Gabriel Anosike (DVM, MPMVEH,npom ',
+    name: 'Dr. Iroh Gabriel Anosike (DVM, MPMVEH, npom) ',
     role: 'Permanent Secretary',
     image: '/images/permsec.jpg',
     bio: 'Oversees administrative operations and ensures effective policy implementation.'

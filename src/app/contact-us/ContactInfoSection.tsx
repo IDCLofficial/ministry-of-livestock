@@ -4,7 +4,7 @@ import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaFacebookF, FaTwitter, FaInstagra
 const contactInfo = {
   address: "Ministry of Livestock Development,Imo State Secretariat Complex,Port Harcourt Road, Owerri, Imo State.",
   email: "info.imoministryoflivestock@gmail.com",
-  phone: "+23467756722",
+  phone: "+2348067756722",
   socials: [
     { icon: <FaFacebookF />, href: "" },
   

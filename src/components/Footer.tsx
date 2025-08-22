@@ -57,8 +57,8 @@ const info = {
             href: "/"
         },
         {
-            label: "+23467756722",
-            href: "tel:+23467756722"
+            label: "+2348067756722",
+            href: "tel:+2348067756722"
         },  
          {
              label: "info.imoministryoflivestock@gmail.com",

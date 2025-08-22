@@ -21,6 +21,33 @@ class ContentfulService {
       return [];
     }
   }
+
+   // Fetch blog titles for suggestions
+   async getBlogTitlesAndSlugsByMinistryId(ministryId: string): Promise<{ title: string; slug: string }[]> {
+    if (!client) {
+      console.warn('Contentful client not initialized. Please check your environment variables.');
+      return [];
+    }
+
+    try {
+      const response = await client.getEntries({
+        content_type: 'blogs',
+        "fields.ministry.sys.id[exists]": true,
+        'fields.ministry.sys.id': ministryId,
+        select: ['fields.title', 'fields.slug'],
+      });
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return response.items.map((item: any) => ({
+        title: item.fields.title,
+        slug: item.fields.slug
+      }));
+    } catch (error) {
+      console.error('Error fetching blog titles:', error);
+      return [];
+    }
+  }
+
 // get news
   // async getBlogsByMinistry(ministryId: string): Promise<NewsPost[]> {
   //   if (!client) {

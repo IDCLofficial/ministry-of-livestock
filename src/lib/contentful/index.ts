@@ -22,7 +22,29 @@ class ContentfulService {
     }
   }
 // get news
-  async getBlogsByMinistry(ministryId: string): Promise<NewsPost[]> {
+  // async getBlogsByMinistry(ministryId: string): Promise<NewsPost[]> {
+  //   if (!client) {
+  //     console.warn('Contentful client not initialized. Please check your environment variables.');
+  //     return [];
+  //   }
+
+  //   try {
+  //     const response = await client.getEntries({
+  //       content_type: 'blogs',
+  //       'fields.ministry.sys.id': ministryId,
+  //       order: ['-sys.createdAt'],
+  //       include: 2,
+  //     });
+
+  //     return response.items as unknown as NewsPost[];
+  //   } catch (error) {
+  //     console.error('Error fetching blogs by ministry:', error);
+  //     return [];
+  //   }
+  // }
+
+  // get news with pagination
+  async getBlogsByMinistry(ministryId: string, page: number = 1): Promise<NewsPost[]> {
     if (!client) {
       console.warn('Contentful client not initialized. Please check your environment variables.');
       return [];
@@ -34,6 +56,8 @@ class ContentfulService {
         'fields.ministry.sys.id': ministryId,
         order: ['-sys.createdAt'],
         include: 2,
+        skip: (page - 1) * 10,
+        limit: 10,
       });
 
       return response.items as unknown as NewsPost[];
@@ -42,6 +66,7 @@ class ContentfulService {
       return [];
     }
   }
+
 // get news with slug
   async getBlogByMinistrySlug(slug: string): Promise<NewsPost | null> {
     if (!client) {

@@ -49,13 +49,13 @@ export default function HeroSection({
     </div>
   
     {/* Frosted Glass Card */}
-    <div className="relative lg:mt-0 z-10 max-w-[96vw] px-6 md:px-10 pt-32 lg:pt-20 pb-6 lg:pb-32 md:pt-48">
-      <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-8 shadow-lg lg:max-w-[60vw]">
-        <h1 className="text-3xl sm:text-4xl font-bold leading-tight text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">
+    <div className="relative lg:mt-0 z-10 max-w-[96vw] lg:max-w-[50vw] px-6 pt-32 lg:pt-20 pb-6 lg:pb-24 md:pt-48">
+      <div className=" lg:max-w-[60vw]">
+        <h1 className="text-3xl font-extrabold sm:text-4xl leading-tight text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">
           {title}
         </h1>
   
-        <p className="mt-3 lg:mt-6 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-4 md:p-8 shadow-lg max-w-xl text-sm md:text-lg">
+        <p className="mt-3 font-extrabold text-green-300 lg:mt-6 bg-white/10 backdrop-blur-sm rounded-4xl p-8 shadow-lg max-w-xl text-sm md:text-lg">
           {description}
         </p>
         <Link

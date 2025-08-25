@@ -29,7 +29,7 @@ export default function ContactUsPage() {
           <ContactFormSection />
         </div>
       </section>
-     <PartnerSection/>
+     
       <Footer />
     </main>
   );

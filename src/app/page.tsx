@@ -9,6 +9,14 @@ import { FaProjectDiagram, FaCalendarAlt, FaPhotoVideo, FaInfoCircle } from "rea
 import DepartmentsSection from "@/components/Departments";
 import PartnerSection from "@/components/PartnerSection";
 import AnimatedSection from "@/components/AnimatedSection";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: { absolute: "Ministry of Livestock Development | Imo State Government" },
+  description: "Official website of the Ministry of Livestock Development, Imo State Government: services, departments, projects, news and events.",
+  path: "/",
+});
+
 
 export default function Home() {
   const cardsData = [

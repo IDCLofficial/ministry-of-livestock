@@ -12,8 +12,8 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: { absolute: "Ministry of Livestock Development | Imo State Government" },
-  description: "Official website of the Ministry of Livestock Development, Imo State Government: services, departments, projects, news and events.",
+  title: { absolute: "Imo State Ministry of Livestock Development" },
+  description: "Veterinary services, livestock production and breed improvement, fisheries and aquaculture, and agribusiness support for farmers in Imo State.",
   path: "/",
 });
 

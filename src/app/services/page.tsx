@@ -5,8 +5,8 @@ import PartnerSection from "../../components/PartnerSection";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Services",
-  description: "Services offered by the Ministry of Livestock Development of the Imo State Government.",
+  title: "Veterinary Services, Livestock Production and Fisheries",
+  description: "Animal disease control and veterinary clinics, cattle, poultry, goat, sheep and pig production, fisheries and aquaculture, and agribusiness marketing in Imo State.",
   path: "/services",
 });
 
